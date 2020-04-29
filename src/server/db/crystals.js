@@ -9,7 +9,7 @@ const crystals = [
     {id: 8, name: 'Tigers Eye', img: '', color: '70s Greenblue', hardness: 7, rarity: 9, value: 20},
     {id: 9, name: 'Hematite', img: '', color: 'Glossy Steel', hardness: 9, rarity: 3, value: 150},
     {id: 10, name: 'Opal', img: '', color: 'White Speckled', hardness: 4, rarity: 2, value: 200},
-    {id: 11, name: 'Jade', img: '', color: 'Dust Jade Green', hardness: 6, rarity: 7, value: 30},
+    {id: 11, name: 'Jade', img: '', color: 'Dusty Jade Green', hardness: 6, rarity: 7, value: 30},
     {id: 12, name: 'Black Obsidian', img: '', color: 'Total Black', hardness: 3, rarity: 4, value: 100},
     {id: 13, name: 'Ruby', img: '', color: 'Fuchsia Glossy Red', hardness: 3, rarity: 3, value: 100},
     {id: 14, name: 'Bloodstone', img: '', color: 'Red Speckled Green', hardness: 7, rarity: 10, value: 5},
