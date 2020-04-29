@@ -22,13 +22,14 @@ export class Home extends React.Component {
       <div className="main-content">
         <h2 className="heading">Play the Gacha Crystal game</h2>
         <p>
-          Welcome to the Crystal! In this game, you will get 3 crystals, and you can mill and buy new 
+          Welcome to the Crystal! In this game, you will get 3 crystals, 
+          and you can mill and buy loot-boxes with new ones for you
         </p>
         <p>Number of Crystals: {crystals.length}</p>
         {user ? (
           <div>
             <Link to={"/crystals"} className={"button"}>
-              Crystals
+              All Crystals
             </Link>
             <div className="action">
               <p>Tokens: {user.tokens}</p>
