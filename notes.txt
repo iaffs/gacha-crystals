@@ -1,0 +1,10 @@
+endpoint: /api/user -> info alt om bruker, balance, items (som man eier)
+
+
+ res.status(200).json({
+            id: req.user.id,
+            victories: req.user.victories,
+            defeats: req.user.defeats
+        }
+
+-> id, balance, crystals feks
