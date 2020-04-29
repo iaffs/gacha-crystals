@@ -44,10 +44,10 @@ function createUser(id, password) {
     return true;
 }
 
-function resetAllUsers(){
+function removeUsers(){
     users.clear();
 }
 
 
 
-module.exports = {getUser, verifyUser, createUser, resetAllUsers};
+module.exports = {getUser, verifyUser, createUser, removeUsers};

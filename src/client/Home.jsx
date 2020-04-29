@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import crystals from '../server/db/crystals';
+import Crystals from "./Crystals";
+
 
 export class Home extends React.Component {
   constructor(props) {
@@ -23,16 +25,17 @@ export class Home extends React.Component {
           Welcome to the Crystal! In this game, you will get 3 crystals, and you can mill and buy new 
         </p>
         <p>Number of Crystals: {crystals.length}</p>
-
         {user ? (
           <div>
-            <Link to={"/match"} className={"button"}>
-              Play
+            <Link to={"/crystals"} className={"button"}>
+              Crystals
             </Link>
             <div className="action">
               <p>Tokens: {user.tokens}</p>
               <p>Crystals: {user.crystals}</p>
+              <Crystals renderCrystalData={this.props.renderCrystalData}></Crystals>
             </div>
+            
           </div>
         ) : (
           <p>You need to log-in to start playing!</p>

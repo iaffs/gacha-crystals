@@ -15,7 +15,7 @@
   font-family: "Times New Roman", Times, serif;
   font-size: 5rem;
   text-decoration: none;
-  background: -webkit-linear-gradient(#eee, #333);
+  background: -webkit-linear-gradient(rgb(255, 255, 255), #e10531);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -25,16 +25,15 @@
   font-size: large;
 }
 .header-button {
-  background-color: #ebe9e4;
-  color: #000000;
+  background-color: #e10531;
+  color: #fff;
   padding: 1rem;
-  border: 1px solid #787774;
   border-radius: 5px;
   margin: 1rem 1rem 0 1rem;
 }
 .header-button:focus,
 .header-button:hover {
-  background-color: #2d1ed6;
+  background-color: #a50727;
   color: #ebe9e4;
 }
 
@@ -55,16 +54,15 @@
 }
 
 .button {
-  background-color: #ebe9e4;
-  color: #000000;
+  background-color: #e10531;
+  color: #fff;
   padding: 1rem;
-  border: 1px solid #787774;
   border-radius: 5px;
   margin-top: 1rem;
 }
 .button:focus,
 .button:hover {
-  background-color: #2d1ed6;
+  background-color: #a50727;
   color: #ebe9e4;
   /*
     The focus selector is important for universal design.
@@ -77,30 +75,6 @@
     */
 }
 
-.quiz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.question {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.answer {
-  background-color: #ebe9e4;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border: 1px solid #787774;
-  border-radius: 5px;
-  width: 80%;
-}
-.answer:hover,
-.answer:focus {
-  background-color: #2d1ed6;
-  color: #ebe9e4;
-}
 
 .center {
   display: flex;
@@ -110,4 +84,33 @@
 }
 .new-game-button {
   align-self: center;
+}
+
+#title {
+  text-align: center;
+}
+
+#crystals {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 90%;
+}
+
+#crystals td, #crystals th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#crystals tr:nth-child(even){background-color: #f2f2f2;}
+
+#crystals tr:hover {background-color: #ddd;}
+
+#crystals th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #e10531;
+  color: white;
 }

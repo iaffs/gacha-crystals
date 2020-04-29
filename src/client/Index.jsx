@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Home } from "./Home";
 import Login from "./Login";
 import SignUp from "./Signup";
+import Crystals from './Crystals'
 import HeaderBar from "./Headerbar";
 
 class App extends React.Component {
@@ -85,6 +86,7 @@ class App extends React.Component {
 
     if (response.status !== 200) {
       //TODO here could have some warning message in the page.
+      this.setState({ errorMsg: "Not really sure what went wrong..." + err})
     } else {
       const payload = await response.json();
       this.updateLoggedInUser(payload);
@@ -121,9 +123,9 @@ class App extends React.Component {
           <Switch>
             <Route
               exact
-              path="/match"
+              path="/crystals"
               render={(props) => (
-                <Match
+                <Crystals
                   {...props}
                   user={this.state.user}
                   updateLoggedInUser={this.updateLoggedInUser}
