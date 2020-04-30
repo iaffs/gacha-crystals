@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import crystals from '../server/db/crystals';
 import Crystals from "./Crystals";
+import Headerbar from "./Headerbar";
 
 
 export class Home extends React.Component {
