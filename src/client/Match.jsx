@@ -132,7 +132,7 @@ export class Match extends React.Component {
   victoriesDefeatsDiv = () => {
     return (
       <div>
-        <p>Tokens: {this.props.user.tokens}</p>
+        <p>Wallet: {this.props.user.value}</p>
         <p>Crystals: {this.props.user.crystals}</p>
       </div>
     );

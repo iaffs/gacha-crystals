@@ -14,7 +14,7 @@ export class Crystals extends React.Component {
 
   renderCrystalData() {
     return crystals.map((crystal, index) => {
-      const { id, name, img, color, hardness, rarity, tokens } = crystal;
+      const { id, name, img, color, hardness, rarity, value } = crystal;
       return (
         <tr key={id}>
           <td>{id}</td>
@@ -23,7 +23,7 @@ export class Crystals extends React.Component {
           <td>{color}</td>
           <td>{hardness}</td>
           <td>{rarity}</td>
-          <td>{tokens}</td>
+          <td>{value}</td>
         </tr>
       );
     });
@@ -31,14 +31,14 @@ export class Crystals extends React.Component {
 
   renderUserCrystals() {
     return crystals.map((crystal, index) => {
-      const {name, img, hardness, rarity, tokens} = crystal;
+      const {name, img, hardness, rarity, value} = crystal;
       return (
         <tr key={id}>
           <td>{name}</td>
           <td><img  src={img} width="50"/></td>
           <td>{hardness}</td>
           <td>{rarity}</td>
-          <td>{tokens}</td>
+          <td>{value}</td>
         </tr>
       )
     });

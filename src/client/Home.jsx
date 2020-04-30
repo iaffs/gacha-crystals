@@ -32,7 +32,7 @@ export class Home extends React.Component {
               All Crystals
             </Link>
             <div className="action center">
-              <p>Tokens: {user.tokens}</p>
+              <p>Wallet: {user.value}</p>
               <p>Crystals: {user.crystals}</p>
               <Crystals renderCrystalData={this.props.renderCrystalData}></Crystals>
             </div>
