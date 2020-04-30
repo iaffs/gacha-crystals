@@ -5,7 +5,7 @@ const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 
-const authApi = require('./routes/auth-api');
+const authApi = require('./routes/api-endpoint');
 const Users = require('./shared/users');
 
 const WsHandler = require('./ws-handler');
@@ -69,7 +69,7 @@ app.use(passport.session());
 
 
 //--- Routes -----------
-app.use('/api', authApi);
+app.use('/', authApi);
 
 //handling 404
 app.use((req, res, next) => {

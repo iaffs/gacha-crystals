@@ -27,7 +27,7 @@ function createUser(id, password) {
     id: id,
     password: password,
     redeemedGift: false,
-    tokens: [],
+    value: 0,
     crystals: []
   };
 
@@ -58,10 +58,10 @@ function getCrystalsCount(id) {
     return user.crystals;
 }
 
-function buyCrystals(id, tokens) {
+function buyCrystals(id, value) {
     const user = getUser(id);
     let newCrystalCount;
-    let newTokensCount;
+    let newValueCount;
 
     // increase crystals
     if (user.crystals != null) {
@@ -70,11 +70,11 @@ function buyCrystals(id, tokens) {
         newCrystalCount = 1;
     }
 
-    // remove tokens from tokens count
-    newTokensCount = (user.tokens - tokens);
+    // remove value from value count
+    newValueCount = (user.value - value);
 
     user.crystals = newCrystalCount;
-    user.tokens = newTokensCount;
+    user.value = newValueCount;
 
     users.set(id, user);
 }
@@ -94,14 +94,14 @@ function getFreeCrystal(id) {
 
 }
 
-function sellCrystal(id, tokens, idx) {
+function sellCrystal(id, value, idx) {
 
     const user = getUser(id);
-    const allCrystals = user.tokens;
+    const allCrystals = user.value;
 
     if (allCrystals != null && allCrystals.constructor === Array) {
-        user.tokens = (user.tokens + tokens);
-        user.tokens.splice(idx, 1);
+        user.value = (user.value + value);
+        user.value.splice(idx, 1);
     }
 }
 
@@ -126,8 +126,8 @@ function updateUser(id, parameters) {
         user.redeemedGift = parameters.redeemedGift;
     }
 
-    if (parameters.tokens) {
-        user.tokens = parameters.tokens;
+    if (parameters.value) {
+        user.value = parameters.value;
     }
 
     if (parameters.crystals) {
@@ -162,7 +162,7 @@ const user = {
     id: id,
     password: password,
     redeemedGift: false,
-    tokens: [1],
+    value: [1],
     crystals: [1]
   };
   */
