@@ -8,8 +8,8 @@ export class Users extends React.Component {
 
     this.state = {
       redeemedGift: false,
-      value: [1],
-      crystals: [1]
+      value: 1,
+      crystals: []
     };
   }
 

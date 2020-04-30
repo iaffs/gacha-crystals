@@ -15,17 +15,21 @@ class SignUp extends React.Component {
 
   onUserIdChange = (event) => {
     this.setState({ userId: event.target.value, errorMsg: null });
+    console.log('onUserIdChange')
   };
 
   onPasswordChange = (event) => {
     this.setState({ password: event.target.value, errorMsg: null });
+    console.log('onPasswordChange')
   };
 
   onConfirmChange = (event) => {
     this.setState({ confirm: event.target.value, errorMsg: null });
+    console.log('onConfirmChange')
   };
 
   doSignUp = async () => {
+    console.log('doSignUp')
     const { userId, password, confirm } = this.state;
 
     if (confirm !== password) {
@@ -87,7 +91,7 @@ class SignUp extends React.Component {
 
     return (
       <div className="center">
-        <div>
+        <div> 
           <p>User Id:</p>
           <input
             type="text"
