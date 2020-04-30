@@ -13,14 +13,8 @@ export class Crystals extends React.Component {
   }
 
   renderCrystalData() {
-    //let crysArray;
-    //console.log(this.props.user)
-    //if (typeof this.props.user !== 'undefined') {
-      //crysArray = this.props.user.crystals
-      //} else {
-        //crysArray = crystals;
     return crystals.map((crystal, index) => {
-      const { id, name, img, color, hardness, rarity, value } = crystal;
+      const { id, name, img, color, hardness, rarity, tokens } = crystal;
       return (
         <tr key={id}>
           <td>{id}</td>
@@ -29,9 +23,24 @@ export class Crystals extends React.Component {
           <td>{color}</td>
           <td>{hardness}</td>
           <td>{rarity}</td>
-          <td>{value}</td>
+          <td>{tokens}</td>
         </tr>
       );
+    });
+  }
+
+  renderUserCrystals() {
+    return crystals.map((crystal, index) => {
+      const {name, img, hardness, rarity, tokens} = crystal;
+      return (
+        <tr key={id}>
+          <td>{name}</td>
+          <td><img  src={img} width="50"/></td>
+          <td>{hardness}</td>
+          <td>{rarity}</td>
+          <td>{tokens}</td>
+        </tr>
+      )
     });
   }
 
@@ -45,8 +54,6 @@ export class Crystals extends React.Component {
   render() {
     return (
       <div className="center">
-        <Link to={"/"} className={"button"}>Back</Link>
-          <h1>All possible Crystals</h1>
           <table id='crystals'>
                <tbody>
                   <tr>{this.renderCrystalHeader()}</tr>

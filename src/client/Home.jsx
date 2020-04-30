@@ -19,18 +19,19 @@ export class Home extends React.Component {
     const user = this.props.user;
 
     return (
-      <div className="main-content">
-        <h2 className="heading">Play the Gacha Crystal game</h2>
+      <div className="main-content center">
+        <h2 className="heading center">Play the Gacha Crystal game</h2>
         <p>
-          Welcome to the Crystal! In this game, you will get 3 crystals, and you can mill and buy new 
+          Welcome to the Crystals! In this game, you will get 3 crystals, 
+          and you can mill and buy loot-boxes with new ones for you
         </p>
-        <p>Number of Crystals: {crystals.length}</p>
+        <p>Number of existing Crystals: {crystals.length}</p>
         {user ? (
           <div>
             <Link to={"/crystals"} className={"button"}>
-              Crystals
+              All Crystals
             </Link>
-            <div className="action">
+            <div className="action center">
               <p>Tokens: {user.tokens}</p>
               <p>Crystals: {user.crystals}</p>
               <Crystals renderCrystalData={this.props.renderCrystalData}></Crystals>
@@ -38,7 +39,10 @@ export class Home extends React.Component {
             
           </div>
         ) : (
+          <div className="main-content center">
           <p>You need to log-in to start playing!</p>
+          <Crystals renderCrystalData={this.props.renderCrystalData}></Crystals>
+            </div>
         )}
       </div>
     );

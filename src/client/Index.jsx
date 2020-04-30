@@ -133,6 +133,16 @@ class App extends React.Component {
                 />
               )}
             />
+             <Route
+              exact
+              path="/users"
+              render={(props) => (
+                <Users
+                  {...props}
+                  fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
+                />
+              )}
+            />
             <Route
               exact
               path="/login"
