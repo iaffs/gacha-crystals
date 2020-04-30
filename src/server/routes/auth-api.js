@@ -1,7 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 
-const Users = require('../db/users');
+const Users = require('../shared/users');
 
 const router = express.Router();
 

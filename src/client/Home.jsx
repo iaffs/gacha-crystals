@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import crystals from '../server/db/crystals';
+import crystals from '../server/shared/crystals';
 import Crystals from "./Crystals";
 
 

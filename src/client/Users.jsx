@@ -1,7 +1,5 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import crystals from "../server/db/crystals";
-import Crystals from './Crystals';
 
 export class Users extends React.Component {
   constructor(props) {

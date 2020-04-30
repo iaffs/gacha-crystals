@@ -6,7 +6,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 
 const authApi = require('./routes/auth-api');
-const Users = require('./db/users');
+const Users = require('./shared/users');
 
 const WsHandler = require('./ws-handler');
 
