@@ -17,14 +17,18 @@ const crystals = [
     {id: 14, name: 'Bloodstone', img: '/img/bloodstone.png', color: 'Red Speckled Green', hardness: 7, rarity: 10, value: 5},
     {id: 15, name: 'Sapphire', img: '/img/sapphire.png', color: 'Royal Blue', hardness: 9, rarity: 2, value: 200}
 ]
-
+/*
 function getRandomCrystal() {
     return crystals[Math.floor(Math.random() * crystals.length)];
 }
-/*
+
 function getPokemonById(id) {
     const pokemon = pokemonList.filter(pokemon => pokemon.id == id);
     return pokemon;
 }
 */
-module.exports = {crystals, getRandomCrystal};
+function exportMe() {
+    console.log("yep");
+}
+//export default crystals;
+module.exports = {crystals, exportMe};

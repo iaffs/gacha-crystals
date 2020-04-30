@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import crystals from '../server/shared/crystals';
+//import crystals from '../server/shared/crystals';
 import Crystals from "./Crystals";
+const crystals = require('../server/shared/crystals');
 
 
 export class Home extends React.Component {
@@ -25,7 +26,7 @@ export class Home extends React.Component {
           Welcome to the Crystals! In this game, you will get 3 crystals, 
           and you can mill and buy loot-boxes with new ones for you
         </p>
-        <p>Number of existing Crystals: {crystals.length}</p>
+        <p>Number of existing Crystals: {crystals.crystals.length}</p>
         {user ? (
           <div>
             <Link to={"/crystals"} className={"button"}>

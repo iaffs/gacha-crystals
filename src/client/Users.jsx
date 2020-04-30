@@ -1,3 +1,4 @@
+
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 
@@ -7,7 +8,7 @@ export class Users extends React.Component {
 
     this.state = {
       redeemedGift: false,
-      tokens: [1],
+      value: [1],
       crystals: [1]
     };
   }

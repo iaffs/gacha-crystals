@@ -15,41 +15,6 @@ export class Match extends React.Component {
     this.fetchCurrentMatch();
   }
 
-  fetchCurrentMatch = async () => {
-    const url = "/api/matches/ongoing";
-
-    let response;
-
-    try {
-      response = await fetch(url, {
-        method: "get"
-      });
-    } catch (err) {
-      this.setState({ errorMsg: "Failed to connect to server: " + err });
-      return;
-    }
-
-    if (response.status === 401) {
-      this.props.updateLoggedInUser(null);
-      this.props.history.push("/");
-      return;
-    }
-
-    if (response.status === 404) {
-      await this.startNewMatch();
-      return;
-    }
-
-    if (response.status !== 200) {
-      this.setState({
-        errorMsg: "Failed connection to server. Status " + response.status
-      });
-      return;
-    }
-
-    const match = await response.json();
-    this.setState({ match: match, errorMsg: null });
-  };
 
   startNewMatch = async () => {
     const url = "/api/matches";
@@ -132,7 +97,7 @@ export class Match extends React.Component {
   victoriesDefeatsDiv = () => {
     return (
       <div>
-        <p>Wallet: {this.props.user.value}</p>
+        <p>Tokens: {this.props.user.tokens}</p>
         <p>Crystals: {this.props.user.crystals}</p>
       </div>
     );

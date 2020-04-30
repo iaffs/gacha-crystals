@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
-import crystals from "../server/shared/crystals";
+const crystals = require('../server/shared/crystals');
 
 export class Crystals extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export class Crystals extends React.Component {
   }
 
   renderCrystalData() {
-    return crystals.map((crystal, index) => {
+    return crystals.crystals.map((crystal, index) => {
       const { id, name, img, color, hardness, rarity, value } = crystal;
       return (
         <tr key={id}>
@@ -30,7 +30,7 @@ export class Crystals extends React.Component {
   }
 
   renderUserCrystals() {
-    return crystals.map((crystal, index) => {
+    return crystals.crystals.map((crystal, index) => {
       const {name, img, hardness, rarity, value} = crystal;
       return (
         <tr key={id}>
@@ -45,7 +45,7 @@ export class Crystals extends React.Component {
   }
 
   renderCrystalHeader() {
-    let header = Object.keys(crystals[0])
+    let header = Object.keys(crystals.crystals[0])
       return header.map((key, index) => {
          return <th key={index}>{key.toUpperCase()}</th>
       })
@@ -56,7 +56,7 @@ export class Crystals extends React.Component {
       <div className="center">
           <table id='crystals'>
                <tbody>
-                  <tr>{this.renderCrystalHeader()}</tr>
+               <tr>{this.renderCrystalHeader()}</tr>
                   {this.renderCrystalData()}
                </tbody>
             </table>
