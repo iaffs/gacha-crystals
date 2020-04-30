@@ -25,7 +25,7 @@ export class Crystals extends React.Component {
         <tr key={id}>
           <td>{id}</td>
           <td>{name}</td>
-          <td><img  src={img} width="60"/></td>
+          <td><img  src={img} width="50"/></td>
           <td>{color}</td>
           <td>{hardness}</td>
           <td>{rarity}</td>

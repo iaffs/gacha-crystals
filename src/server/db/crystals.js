@@ -1,7 +1,8 @@
 
 
 
-const allCrystals = [
+
+const crystals = [
     {id: 1, name: 'Emerald', img: '/img/emerald.png', color: 'Emerald Green', hardness: 7, rarity: 4, value: 100},
     {id: 2, name: 'Diamond', img: './img/diamond.png', color: 'Glossy Transparent', hardness: 10, rarity: 1, value: 300},
     {id: 3, name: 'Angelite', img: '/img/angelite.png', color: 'Dusty Skyblue', hardness: 6, rarity: 6, value: 50},
@@ -17,16 +18,7 @@ const allCrystals = [
     {id: 13, name: 'Ruby', img: '/img/ruby.png', color: 'Fuchsia Glossy Red', hardness: 3, rarity: 3, value: 100},
     {id: 14, name: 'Bloodstone', img: '/img/bloodstone.png', color: 'Red Speckled Green', hardness: 7, rarity: 10, value: 5},
     {id: 15, name: 'Sapphire', img: '/img/sapphire.png', color: 'Royal Blue', hardness: 9, rarity: 2, value: 200}
-];
-
-function getRandomCrystal() {
-    return allCrystals[Math.floor(Math.random() * allCrystals.length)];
-}
-
-function getCrystalById(id) {
-    const crystal = allCrystals.filter(crystal => crystal.id == id);
-    return crystal;
-}
+]
 
 
-module.exports = {allCrystals, getRandomCrystal, getCrystalById};
+export default crystals;

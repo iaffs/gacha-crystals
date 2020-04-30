@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import Headerbar from './Headerbar';
 
 class Login extends React.Component {
   constructor(props) {
@@ -73,9 +72,6 @@ class Login extends React.Component {
 
     return (
       <div className="center">
-        <Headerbar>
-          
-        </Headerbar>
         <div>
           <p>User Id:</p>
           <input
