@@ -81,7 +81,7 @@ class App extends React.Component {
     console.log(response.status);
     if (response.status === 401) {
       // Passport will automatically provide error 401 if not authenticated
-      this.updateLoggedInUserId(null);
+      this.updateLoggedInUser(null);
       return;
     }
 
@@ -89,14 +89,13 @@ class App extends React.Component {
       //TODO here could have some warning message in the page.
       this.setState({ errorMsg: "Not really sure what went wrong..." + err})
     } else {
-      const user = await response.json();
-      console.log(user);
-      this.updateLoggedInUserId(user.id);
+      const payload = await response.json();
+      this.updateLoggedInUser(payload.user);
     }
   };
 
-  updateLoggedInUserId = (id) => {
-    this.setState({ user: id });
+  updateLoggedInUser = (user) => {
+    this.setState({ user: user });
   };
 
   notFound() {
@@ -117,7 +116,6 @@ class App extends React.Component {
          */
 
     const id = this.state.user ? this.state.user.id : null;
-
     return (
       <BrowserRouter>
         <div>

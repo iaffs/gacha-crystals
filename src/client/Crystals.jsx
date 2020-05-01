@@ -8,12 +8,14 @@ export class Crystals extends React.Component {
 
     this.state = {
       errorMsg: null,
+      redeemedGift: false,
+      value: 1,
       crystals: []
     };
   }
 
-  renderCrystalData() {
-    return crystals.crystals.map((crystal, index) => {
+  renderCrystalData(crystalarray) {
+    return crystalarray.map((crystal, index) => {
       const { id, name, img, color, hardness, rarity, value } = crystal;
       return (
         <tr key={id}>
@@ -57,7 +59,7 @@ export class Crystals extends React.Component {
           <table id='crystals'>
                <tbody>
                <tr>{this.renderCrystalHeader()}</tr>
-                  {this.renderCrystalData()}
+                  {this.renderCrystalData(crystals.crystals)}
                </tbody>
             </table>
       </div>

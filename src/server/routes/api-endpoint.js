@@ -51,7 +51,7 @@ router.get('/api/user', function (req, res) {
 
     // if I have a cookie, send this
     res.status(200).json({
-            id: req.user.id
+            user: req.user
         }
     );
 });

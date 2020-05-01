@@ -26,8 +26,7 @@ class HeaderBar extends React.Component {
       alert("Error when connecting to server: status code " + response.status);
       return;
     }
-
-    this.props.updateLoggedInUser(null);
+    this.props.updateLoggedInUser(null); 
     this.props.history.push("/");
   };
 

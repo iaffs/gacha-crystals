@@ -22,9 +22,9 @@ function getRandomCrystal() {
     return crystals[Math.floor(Math.random() * crystals.length)];
 }
 
-function getPokemonById(id) {
-    const pokemon = pokemonList.filter(pokemon => pokemon.id == id);
-    return pokemon;
+function getCrystalById(id) {
+    const crystal = crystal.filter(crystal => crystal.id == id);
+    return crystal;
 }
 */
 function exportMe() {
