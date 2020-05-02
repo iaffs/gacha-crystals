@@ -17,16 +17,23 @@ const crystals = [
     {id: 14, name: 'Bloodstone', img: '/img/bloodstone.png', color: 'Red Speckled Green', hardness: 7, rarity: 10, value: 5},
     {id: 15, name: 'Sapphire', img: '/img/sapphire.png', color: 'Royal Blue', hardness: 9, rarity: 2, value: 200}
 ]
-/*
+
+/* random tall mellom 1 og 100, + rarity.
+range: 1-100 - 1/5
+*/
 function getRandomCrystal() {
     return crystals[Math.floor(Math.random() * crystals.length)];
 }
+
+/*
 
 function getCrystalById(id) {
     const crystal = crystal.filter(crystal => crystal.id == id);
     return crystal;
 }
 */
+
+
 function exportMe() {
     console.log("yep");
 }

@@ -38,7 +38,7 @@ class HeaderBar extends React.Component {
           !
         </p>
         <button className="header-button" onClick={this.doLogout}>
-          Logout
+          Log out
         </button>
       </React.Fragment>
     );

@@ -94,6 +94,12 @@ function getFreeCrystal(id) {
 
 }
 
+function redeemedGift(id) {
+    const user = getUser(id);
+
+    user.redeemedGift = true;
+}
+
 function sellCrystal(id, value, idx) {
 
     const user = getUser(id);
@@ -177,6 +183,7 @@ module.exports = {
     sellCrystal,
     getCrystalsCount,
     buyCrystals,
+    redeemedGift,
     updateUser,
     addNewCrystal,
     removeUsers 

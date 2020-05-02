@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 const crystals = require('../server/shared/crystals');
+const usercrystals = require('../server/shared/users');
 
 export class Crystals extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export class Crystals extends React.Component {
     this.state = {
       errorMsg: null,
       redeemedGift: false,
-      value: 1,
+      value: null,
       crystals: []
     };
   }
@@ -32,7 +33,13 @@ export class Crystals extends React.Component {
   }
 
   renderUserCrystals() {
-    return crystals.crystals.map((crystal, index) => {
+    const allUserCrystals = this.state.usercrystals.crystals;
+
+    if (allUserCrystals == undefined || allCrystals.length <= 0)
+    return;
+
+
+    return usercrystals.crystals.map((crystal, index) => {
       const {name, img, hardness, rarity, value} = crystal;
       return (
         <tr key={id}>
@@ -41,10 +48,12 @@ export class Crystals extends React.Component {
           <td>{hardness}</td>
           <td>{rarity}</td>
           <td>{value}</td>
+          <td><button className="button">Sell</button></td>
         </tr>
       )
     });
   }
+// {this.renderUserCrystals(usercrystals.crystals)}
 
   renderCrystalHeader() {
     let header = Object.keys(crystals.crystals[0])
@@ -54,6 +63,11 @@ export class Crystals extends React.Component {
   }
 
   render() {
+    console.log("hei og hå");
+    console.log(this.props);
+    if (this.props.renderCrystalData) {
+    console.log(this.props.renderCrystalData.user);      
+    }
     return (
       <div className="center">
           <table id='crystals'>

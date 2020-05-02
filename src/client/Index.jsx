@@ -12,17 +12,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    /*
-            As whether we are logged in or not will impact the rendering of
-            all pages, such state info as to be stored here in the root component.
-            If a user is logged in, then we store its data here.
-            A null value means the user is not logged in.
-         */
+
+      // TODO Update state with all attributes (crystals, redeemedGift, values)
 
     this.state = {
       user: null,
-      userCount: 1,
-      
+      userCount: 1
+      ,
     };
   }
 
@@ -96,6 +92,7 @@ class App extends React.Component {
 
   updateLoggedInUser = (user) => {
     this.setState({ user: user });
+    console.log(user);
   };
 
   notFound() {

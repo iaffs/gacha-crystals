@@ -37,6 +37,31 @@ router.post('/api/logout', function (req, res) {
     res.status(204).send();
 });
 
+router.get('/api/user/:id', (req, res) => {
+    if (req.params.id) {
+        const user = Users.getUser(req.params.id);
+        res.json(user);
+    }
+});
+
+
+router.get('/api/redeemedgift', (req, res) => {
+
+    if (req.user) {
+        const userId = req.user.id;
+        Users.redeemedGift(userId);
+        res.status(200).send();
+    }
+});
+
+router.get('api/buycrystal', (req, res) => {
+    if (req.user) {
+        const userId = req.user.id;
+        Users.buyCrystal(userId);
+        res.status(200).send();
+    }
+})
+
 
 /*
     Just return the id of the user, if the request is
@@ -51,6 +76,8 @@ router.get('/api/user', function (req, res) {
 
     // if I have a cookie, send this
     res.status(200).json({
+        // TODO get user object from users.js
+        // return as json
             user: req.user
         }
     );

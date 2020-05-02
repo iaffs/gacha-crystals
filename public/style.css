@@ -86,6 +86,10 @@
   align-self: center;
 }
 
+.limited {
+  max-width: 50%;
+}
+
 #title {
   text-align: center;
 }
