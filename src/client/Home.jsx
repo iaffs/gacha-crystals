@@ -63,7 +63,7 @@ export class Home extends React.Component {
 
   render() {
     const user = this.props.userObject;
-    
+
     return (
       <div className="main-content center">
         <h2 className="heading center">Play the Gacha Crystal game</h2>
