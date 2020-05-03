@@ -73,7 +73,15 @@ export class Crystals extends React.Component {
           <td>{hardness}</td>
           <td>{rarity}</td>
           <td>{value}</td>
-          <td><button data-crystalid={id} className="button" onClick={this.sellCrystal.bind(this)}>Sell</button></td>
+          <td>
+            <button
+              data-crystalid={id}
+              className="button"
+              onClick={this.sellCrystal.bind(this)}
+            >
+              Sell
+            </button>
+          </td>
         </tr>
       );
     });
@@ -102,20 +110,21 @@ export class Crystals extends React.Component {
       <div className="center">
         {user ? (
           <div className="center special">
-          <table id="crystals">
-            <tbody>{this.renderUserCrystalHeader()}
-              {this.renderUserCrystals(user.crystals)}
-            </tbody>
-          </table>
+            <table id="crystals">
+              <tbody>
+                {this.renderUserCrystalHeader()}
+                {this.renderUserCrystals(user.crystals)}
+              </tbody>
+            </table>
           </div>
         ) : (
           <div className="center special">
-          <table id="crystals">
-            <tbody>
-              <tr>{this.renderCrystalHeader()}</tr>
-              {this.renderCrystalData(crystals.crystals)}
-            </tbody>
-          </table>
+            <table id="crystals">
+              <tbody>
+                <tr>{this.renderCrystalHeader()}</tr>
+                {this.renderCrystalData(crystals.crystals)}
+              </tbody>
+            </table>
           </div>
         )}
       </div>
