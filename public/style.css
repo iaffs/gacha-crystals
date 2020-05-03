@@ -1,3 +1,16 @@
+@font-face {
+  font-family: codystar-regular;
+  src: url("../font/Codystar-regular.ttf");
+}
+
+@font-face {
+  font-family: opensans-regular;
+  src: url("../font/OpenSans-Regular.ttf");
+}
+p {
+  font-family: opensans-regular;
+}
+
 .main-content {
   margin: auto;
   width: 100%;
@@ -11,7 +24,7 @@
 }
 
 .header-logo {
-  font-family: "Times New Roman", Times, serif;
+  font-family: codystar-regular;
   font-size: 5rem;
   text-decoration: none;
   background: -webkit-linear-gradient(rgb(255, 255, 255), #e10531);
@@ -20,12 +33,14 @@
 }
 
 .header-text {
+  font-family: opensans-regular;
   align-self: center;
   font-size: large;
 }
 .header-button {
   background-color: #e10531;
   color: #fff;
+  font-family: opensans-regular;
   padding: 1rem;
   border-radius: 5px;
   margin: 1rem 1rem 0 1rem;
@@ -37,14 +52,17 @@
 }
 
 .action-buttons {
+  font-family: opensans-regular;
   margin-top: 2rem;
 }
 
 .heading {
+  font-family: opensans-regular;
   margin: 2rem 0;
 }
 
 .welcome-text {
+  font-family: opensans-regular;
   font-size: 1.5em;
   margin-bottom: 1rem;
 }
@@ -58,6 +76,7 @@
 }
 
 .wallet {
+  font-family: opensans-regular;
   background-color: #a50727;
   color: #fff;
   padding: 1rem;
@@ -68,6 +87,7 @@
 .button {
   background-color: #e10531;
   color: #fff;
+  font-family: opensans-regular;
   padding: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
@@ -76,17 +96,7 @@
 .button:hover {
   background-color: #a50727;
   color: #ebe9e4;
-  /*
-    The focus selector is important for universal design.
-    Especially for users navigating with keyboard. Sadly it is often forgotten
-    and a lot of designers request frontend developers to remove the browsers default focus,
-    without adding a custom one. This should not be done!
-    If you do this you make it very hard for a keyboard user to navigate.
-    The least you can do is to leave the Default browser style and then add the same style as on hover.
-    Read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/
-    */
 }
-
 
 .center {
   display: flex;
@@ -109,20 +119,25 @@
 
 #crystals {
   text-align: center;
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-family: opensans-regular;
   border-collapse: collapse;
   border: 3px solid #ddd;
   width: 100%;
 }
 
-#crystals td, #crystals th {
+#crystals td,
+#crystals th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#crystals tr:nth-child(even){background-color: #f2f2f2;}
+#crystals tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-#crystals tr:hover {background-color: #ddd;}
+#crystals tr:hover {
+  background-color: #ddd;
+}
 
 #crystals th {
   padding-top: 12px;
