@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 const crystals = require("../server/shared/crystals");
-const usercrystals = require("../server/shared/users");
 
 export class Crystals extends React.Component {
   constructor(props) {
@@ -19,9 +18,6 @@ export class Crystals extends React.Component {
     if (this.props.user) {
       this.props.fetchAndUpdateUserInfo();
       console.log("crystals/ reddeem: " + this.props.userObject.redeemedGift);
-      //console.log(this.props.user);
-      //console.log("this.props.use");
-      //this.setState({redeemedGift : this.props.user.redeemedGift})
     }
   }
 
@@ -98,8 +94,6 @@ export class Crystals extends React.Component {
 
   render() {
     let user = null;
-    //console.log("hei og hå");
-    //console.log(this.props);
     if (this.props.renderUserCrystalData) {
       user = this.props.renderUserCrystalData.userObject;
     }
