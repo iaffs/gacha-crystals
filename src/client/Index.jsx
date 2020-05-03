@@ -1,3 +1,5 @@
+// Copied (and modified) from https://github.com/arcuri82/web_development_and_api_design/blob/master/exercise-solutions/quiz-game/part-09/src/client/index.jsx
+
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -5,7 +7,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Home } from "./Home";
 import Login from "./Login";
 import SignUp from "./Signup";
-import Crystals from './Crystals'
+import Crystals from "./Crystals";
 import HeaderBar from "./Headerbar";
 
 class App extends React.Component {
@@ -17,7 +19,6 @@ class App extends React.Component {
       userObject: null,
     };
   }
-
 
   componentDidMount() {
     this.fetchAndUpdateUserInfo();
@@ -67,7 +68,7 @@ class App extends React.Component {
     }
 
     if (response.status !== 200) {
-      this.setState({ errorMsg: "Not really sure what went wrong..." + err})
+      this.setState({ errorMsg: "Not really sure what went wrong..." + err });
     } else {
       const payload = await response.json();
       console.log("user obj from /api/user: ", payload.user);
@@ -82,8 +83,8 @@ class App extends React.Component {
   };
 
   updateUserObject = (user) => {
-    this.setState({userObject: user});
-  }
+    this.setState({ userObject: user });
+  };
 
   notFound() {
     return (
@@ -95,18 +96,16 @@ class App extends React.Component {
   }
 
   render() {
-
     const id = this.state.user ? this.state.user.id : null;
     return (
       <BrowserRouter>
         <div>
           <HeaderBar
-           user={this.state.user}
-           userObject={this.state.userObject}
-           updateLoggedInUser={this.updateLoggedInUser}
-           updateUserObject={this.updateUserObject}
-
-            />
+            user={this.state.user}
+            userObject={this.state.userObject}
+            updateLoggedInUser={this.updateLoggedInUser}
+            updateUserObject={this.updateUserObject}
+          />
           <Switch>
             <Route
               exact
@@ -121,7 +120,7 @@ class App extends React.Component {
                 />
               )}
             />
-             <Route
+            <Route
               exact
               path="/users"
               render={(props) => (
