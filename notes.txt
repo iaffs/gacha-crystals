@@ -8,3 +8,5 @@ endpoint: /api/user -> info alt om bruker, balance, items (som man eier)
         }
 
 -> id, balance, crystals feks
+
+
