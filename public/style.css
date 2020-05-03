@@ -10,7 +10,6 @@
   justify-content: space-between;
 }
 
-/*Uselly in the left corner there is a logo that is linked home. So we make on with css.*/
 .header-logo {
   font-family: "Times New Roman", Times, serif;
   font-size: 5rem;
@@ -51,6 +50,19 @@
 }
 .action {
   padding: 1rem 0;
+  margin: 0px;
+}
+
+.home {
+  width: 80%;
+}
+
+.wallet {
+  background-color: #a50727;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .button {
@@ -82,12 +94,13 @@
   justify-content: center;
   align-items: center;
 }
-.new-game-button {
-  align-self: center;
-}
 
 .limited {
   max-width: 50%;
+}
+
+.special {
+  width: 80%;
 }
 
 #title {
@@ -99,7 +112,7 @@
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   border: 3px solid #ddd;
-  width: 90%;
+  width: 100%;
 }
 
 #crystals td, #crystals th {
