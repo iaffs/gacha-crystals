@@ -3,7 +3,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-
 class HeaderBar extends React.Component {
   constructor(props) {
     super(props);
@@ -33,9 +32,7 @@ class HeaderBar extends React.Component {
   renderLoggedIn(userId) {
     return (
       <React.Fragment>
-        <p className="header-text">
-          Welcome {userId} !
-        </p>
+        <p className="header-text">Welcome {userId} !</p>
         <button className="header-button" onClick={this.doLogout}>
           Log out
         </button>
