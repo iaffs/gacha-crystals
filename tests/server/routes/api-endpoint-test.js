@@ -1,5 +1,7 @@
 const request = require('supertest');
 const {app} = require('../../../src/server/app');
+const {users} = require('../../../src/server/routes/api-endpoint');
+
 
 
 let counter = 0;
@@ -63,7 +65,7 @@ test("Test create user and get data", async () =>{
     response = await agent.get('/api/user');
 
     expect(response.statusCode).toBe(200);
-    expect(response.body.id).toBe(userId);
+    expect(response.body.user.id).toBe(userId);
     expect(response.body.password).toBeUndefined();
 });
 
@@ -95,7 +97,7 @@ test("Test create user, login in a different session and get data", async () =>{
     response = await agent.get('/api/user');
 
     expect(response.statusCode).toBe(200);
-    expect(response.body.id).toBe(userId);
+    expect(response.body.user.id).toBe(userId);
     expect(response.body.password).toBeUndefined();
 });
 
