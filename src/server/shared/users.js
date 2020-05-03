@@ -50,7 +50,6 @@ function buyLootBox(id, free) {
   }
   user.crystalCount++;
   const newCrystal = crystals.randomCrystal(user.crystalCount);
-  //newCrystal = crystals.randomCrystal(user.crystalCount);
   user.crystals.push(newCrystal);
   return true;
 }
@@ -71,13 +70,11 @@ function sellCrystal(id, cId) {
   });
 
   if (value > 0) {
-    //const newCrystalArr = user.crystals.filter(crystal => crystal['id'] == cId);
     for (let index = 0; index < user.crystals.length; index++) {
         if (user.crystals[index]["id"] == cId) {
             user.crystals.splice(index,1)
         }
     }
-    //user.crystals = newCrystalArr;
     user.value = user.value + value;
     return true;
   }
