@@ -10,24 +10,20 @@ function init(app) {
     app.ws('/', function (socket, req) {
         console.log('Established a new WS connection');
 
-        broadCastCount();
+
+        socket.on('message', (data) => {
+            processWebsocketMessage(data);
+         });
 
         //close is treated specially
         socket.on('close', () => {
-            broadCastCount();
+           console.log('connected closed');
         });
     });
 }
 
-function broadCastCount() {
-    const n = ews.getWss().clients.size;
-
-    ews.getWss().clients.forEach((client) => {
-
-        const data = JSON.stringify({userCount: n});
-
-        client.send(data);
-    });
+function processWebsocketMessage() {
+   // process free gift here
 }
 
 

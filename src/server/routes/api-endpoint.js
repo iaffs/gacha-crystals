@@ -49,18 +49,38 @@ router.get('/api/redeemedgift', (req, res) => {
 
     if (req.user) {
         const userId = req.user.id;
-        Users.redeemedGift(userId);
+        if (req.user.gift > 0) {
+            Users.redeemedGift(userId);
+        }   
         res.status(200).send();
     }
 });
 
-router.get('api/buycrystal', (req, res) => {
+// this endpoint updates the user wallet (deducts the price)
+// and updates the number of crystals
+router.get('/api/buylootbox', (req, res) => {
     if (req.user) {
         const userId = req.user.id;
-        Users.buyCrystal(userId);
-        res.status(200).send();
+       if  (Users.buyLootBox(userId, false)) {
+            res.status(200).send();
+       } else {
+            res.status(204).send();
+       }
+    } else {
+    res.status(401).send();
     }
 })
+
+router.get('/api/sellcrystal/:id', (req, res) => {
+
+    if (req.params.id && req.user) {
+        if (Users.sellCrystal(req.user.id, req.params.id)) {
+            res.status(200).send();
+        } else {
+            res.status(204).send()
+        }
+    }
+});
 
 
 /*
@@ -74,11 +94,15 @@ router.get('/api/user', function (req, res) {
         return;
     }
 
+    const user = Users.getUser(req.user.id);
+
     // if I have a cookie, send this
     res.status(200).json({
+
+        user
         // TODO get user object from users.js
         // return as json
-            user: req.user
+          //  user: req.user
         }
     );
 });
