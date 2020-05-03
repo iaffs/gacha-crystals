@@ -49,7 +49,8 @@ function buyLootBox(id, free) {
     user.value = user.value - 5;
   }
   user.crystalCount++;
-  newCrystal = crystals.randomCrystal(user.crystalCount);
+  const newCrystal = crystals.randomCrystal(user.crystalCount);
+  //newCrystal = crystals.randomCrystal(user.crystalCount);
   user.crystals.push(newCrystal);
   return true;
 }
