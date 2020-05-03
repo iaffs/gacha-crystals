@@ -1,10 +1,9 @@
+// Copied (and modified) from https://github.com/arcuri82/web_development_and_api_design/blob/master/exercise-solutions/quiz-game/part-09/src/client/signup.jsx
+
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
-/*
-    Just provide a header component for all pages, where we have a link to the
-    home-page, and login/signup/logout buttons.
- */
+
 class HeaderBar extends React.Component {
   constructor(props) {
     super(props);

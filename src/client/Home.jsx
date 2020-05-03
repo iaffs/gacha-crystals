@@ -1,9 +1,9 @@
+// Copied (and modified) from https://github.com/arcuri82/web_development_and_api_design/blob/master/exercise-solutions/quiz-game/part-09/src/client/home.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
-//import crystals from '../server/shared/crystals';
 import Crystals from "./Crystals";
 const crystals = require("../server/shared/crystals");
-const usercrystals = require("../server/shared/users");
 
 export class Home extends React.Component {
   constructor(props) {
@@ -22,17 +22,10 @@ export class Home extends React.Component {
     if (this.props.user) {
       this.props.fetchAndUpdateUserInfo();
       this.state.gift = this.props.userObject.gift;
-      //this.setState({redeemedGift : this.props.userObject.redeemedGift})
-      //console.log("home userobj: " + this.state.userObject.redeemedGift);
-      //console.log(this.props.user);
-      //console.log("this.props.use");
-      //this.setState({redeemedGift : this.props.user.redeemedGift})
     }
   }
 
   handleClickGift = (event) => {
-    // this.props.userObject.redeemedGift = true;
-    //this.state...redeemedGift: true });
     this.setState({ gift: this.state.gift - 1 });
     this.redeemedGift(); //async api call
     this.props.fetchAndUpdateUserInfo();
@@ -40,15 +33,7 @@ export class Home extends React.Component {
 
   handleLootBoxClick = (event) => {
     // generate random crystal
-
-    // 1. check if user has enough money
-    // 2. what is the price for the loot box?
-    // 3. result of loot box - store in state + backend?
-    // 4. update render?
-    //const newCrystal = crystals.randomCrystal();
-    //this.setState({crystals: [...this.state.crystals, crystal]});
-    this.buyLootBox(); //async api call
-    // update user info here
+    this.buyLootBox();
   };
 
   async redeemedGift() {
@@ -78,19 +63,7 @@ export class Home extends React.Component {
 
   render() {
     const user = this.props.userObject;
-    //console.log(this.state.redeemedGift);
-    //console.log(user);
-    // let renderButton = this.renderButton();
-
-    /*
-    const gift = this.redeemedGift;
-    let content;
-    if (!gift) {
-      content = this.renderNotGiftButton();
-    } else {
-      content = this.renderGiftButton(gift);
-    }
-    */
+    
     return (
       <div className="main-content center">
         <h2 className="heading center">Play the Gacha Crystal game</h2>
@@ -124,7 +97,7 @@ export class Home extends React.Component {
           </div>
         ) : (
           <div className="main-content center">
-            <p>You need to log-in to start playing!</p>
+            <p>You need to log in to get crystals!</p>
             <Crystals></Crystals>
           </div>
         )}

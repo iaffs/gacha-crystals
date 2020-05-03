@@ -76,6 +76,7 @@ class Login extends React.Component {
           <p>User Id:</p>
           <input
             type="text"
+            id="loginField"
             value={this.state.userId}
             onChange={this.onUserIdChange}
           />
@@ -84,6 +85,7 @@ class Login extends React.Component {
           <p>Password:</p>
           <input
             type="password"
+            id="passwordField"
             value={this.state.password}
             onChange={this.onPasswordChange}
           />
@@ -91,7 +93,7 @@ class Login extends React.Component {
 
         {error}
 
-        <button className="button" onClick={this.doLogIn}>
+        <button className="button" id="loginBtn" onClick={this.doLogIn}>
           Log In
         </button>
         <Link className="button" to={"/signup"}>

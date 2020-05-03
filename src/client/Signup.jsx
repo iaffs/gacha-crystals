@@ -95,6 +95,7 @@ class SignUp extends React.Component {
           <p>User Id:</p>
           <input
             type="text"
+            id="userId"
             value={this.state.userId}
             onChange={this.onUserIdChange}
           />
@@ -103,6 +104,7 @@ class SignUp extends React.Component {
           <p>Password:</p>
           <input
             type="password"
+            id="password"
             value={this.state.password}
             onChange={this.onPasswordChange}
           />
@@ -111,6 +113,7 @@ class SignUp extends React.Component {
           <p>Confirm:</p>
           <input
             type="password"
+            id="passwordConfirm"
             value={this.state.confirm}
             onChange={this.onConfirmChange}
           />
@@ -119,7 +122,7 @@ class SignUp extends React.Component {
 
         {error}
 
-        <button className="button" onClick={this.doSignUp}>
+        <button className="button" id="signUpBtn" onClick={this.doSignUp}>
           Sign Up
         </button>
       </div>
