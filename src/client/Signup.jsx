@@ -1,3 +1,5 @@
+// Copied (and modified) from https://github.com/arcuri82/web_development_and_api_design/blob/master/exercise-solutions/quiz-game/part-09/src/client/signup.jsx
+
 import React from "react";
 import { withRouter } from "react-router-dom";
 
@@ -15,21 +17,21 @@ class SignUp extends React.Component {
 
   onUserIdChange = (event) => {
     this.setState({ userId: event.target.value, errorMsg: null });
-    console.log('onUserIdChange')
+    console.log("onUserIdChange");
   };
 
   onPasswordChange = (event) => {
     this.setState({ password: event.target.value, errorMsg: null });
-    console.log('onPasswordChange')
+    console.log("onPasswordChange");
   };
 
   onConfirmChange = (event) => {
     this.setState({ confirm: event.target.value, errorMsg: null });
-    console.log('onConfirmChange')
+    console.log("onConfirmChange");
   };
 
   doSignUp = async () => {
-    console.log('doSignUp')
+    console.log("doSignUp");
     const { userId, password, confirm } = this.state;
 
     if (confirm !== password) {
@@ -91,7 +93,7 @@ class SignUp extends React.Component {
 
     return (
       <div className="center">
-        <div> 
+        <div>
           <p>User Id:</p>
           <input
             type="text"
