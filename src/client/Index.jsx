@@ -17,8 +17,7 @@ class App extends React.Component {
 
     this.state = {
       user: null,
-      userCount: 1
-      ,
+      userObject: null,
     };
   }
 
@@ -86,7 +85,9 @@ class App extends React.Component {
       this.setState({ errorMsg: "Not really sure what went wrong..." + err})
     } else {
       const payload = await response.json();
-      this.updateLoggedInUser(payload.user);
+      console.log("user obj from /api/user: ", payload.user);
+      this.updateLoggedInUser(payload.user.id);
+      this.updateUserObject(payload.user);
     }
   };
 
@@ -94,6 +95,10 @@ class App extends React.Component {
     this.setState({ user: user });
     console.log(user);
   };
+
+  updateUserObject = (user) => {
+    this.setState({userObject: user});
+  }
 
   notFound() {
     return (
@@ -116,7 +121,13 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <HeaderBar userId={id} updateLoggedInUser={this.updateLoggedInUser} />
+          <HeaderBar
+           user={this.state.user}
+           userObject={this.state.userObject}
+           updateLoggedInUser={this.updateLoggedInUser}
+           updateUserObject={this.updateUserObject}
+
+            />
           <Switch>
             <Route
               exact
@@ -125,6 +136,7 @@ class App extends React.Component {
                 <Crystals
                   {...props}
                   user={this.state.user}
+                  userObject={this.state.userObject}
                   updateLoggedInUser={this.updateLoggedInUser}
                   fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
                 />
@@ -167,7 +179,7 @@ class App extends React.Component {
                 <Home
                   {...props}
                   user={this.state.user}
-                  userCount={this.state.userCount}
+                  userObject={this.state.userObject}
                   fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
                 />
               )}

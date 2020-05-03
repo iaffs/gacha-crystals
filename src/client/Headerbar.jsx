@@ -26,7 +26,8 @@ class HeaderBar extends React.Component {
       alert("Error when connecting to server: status code " + response.status);
       return;
     }
-    this.props.updateLoggedInUser(null); 
+    this.props.updateLoggedInUser(null);
+    this.props.updateUserObject(null);
     this.props.history.push("/");
   };
 
@@ -34,8 +35,7 @@ class HeaderBar extends React.Component {
     return (
       <React.Fragment>
         <p className="header-text">
-          Welcome {userId}
-          !
+          Welcome {userId} !
         </p>
         <button className="header-button" onClick={this.doLogout}>
           Log out
@@ -61,7 +61,7 @@ class HeaderBar extends React.Component {
   }
 
   render() {
-    const userId = this.props.userId;
+    const userId = this.props.user;
 
     let content;
     if (!userId) {

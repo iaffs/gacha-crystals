@@ -10,110 +10,45 @@ export class Home extends React.Component {
     super(props);
 
     this.state = {
-      redeemedGift: false,
+      gift: 3,
+      userObject: null,
       value: null,
       crystals: [],
       errorMsg: null,
     };
-    if (this.props.user) {
-      console.log("settes her");
-      this.state.redeemedGift = this.props.user.redeemedGift;
-    }
-
-    console.log("props her");
-    console.log(props);
   }
 
   componentDidMount() {
     if (this.props.user) {
       this.props.fetchAndUpdateUserInfo();
+      this.state.gift = this.props.userObject.gift;
+      //this.setState({redeemedGift : this.props.userObject.redeemedGift})
+      //console.log("home userobj: " + this.state.userObject.redeemedGift);
       //console.log(this.props.user);
       //console.log("this.props.use");
       //this.setState({redeemedGift : this.props.user.redeemedGift})
     }
   }
 
-  renderButton() {
-
-    return (
-      <React.Fragment>
-        <button class="button">Redeem gift!</button>
-      </React.Fragment>
-    );
-  }
-
-  /*
-  renderGiftButton(user) {
-    return (
-        <button className="button" onClick={this.getFreeCrystal}>
-          You have free gift!
-        </button>
-    );
-  }
-
-  renderNotGiftButton() {
-    return (
-          <button className="button">
-            No free gift left
-          </button>
-          
-    );
-  }
-  */
-
-  /*
-  getFreeCrystal() {
-    const url = "api/getfreecrystal";
-    fetch(url)
-    .then(res => {
-      if (res.status == 200) {
-        this.fetchAndUpdateUserInfo();
-      }
-    })
-  }
-
-  async updateCrystals() {
-    const url = "api/user";
-    let response;
-    try {
-      response = await fetch(url);
-    } catch (err) {
-      this.setState({
-      value: null,
-      crystals: [],
-      errorMsg: "Error when retrieving inventory: " + errorMsg
-      });
-      return;
-    }
-
-    if (response.status === 401) {
-      this.props.fetchAndUpdateUserInfo(null);
-      return;
-    }
-
-    if (response.status === 200) {
-      const result = await response.json();
-      this.setState({
-        id: result.id,
-        value: result.value,
-        crystals: result.crystals
-      });
-
-      this.props.fetchAndUpdateUserInfo(result.id);
-
-    } else {
-      this.setState({
-        value: null,
-        crystals: null,
-        errorMsg: "Problems with HTTP. Status code: " + response.status
-      })
-    }
-  }
-  */
-
   handleClickGift = (event) => {
-    this.setState({ redeemedGift: true });
-    this.redeemedGift();
+    // this.props.userObject.redeemedGift = true;
+    //this.state...redeemedGift: true });
+    this.setState({ gift: this.state.gift - 1 });
+    this.redeemedGift(); //async api call
+    this.props.fetchAndUpdateUserInfo();
+  };
+
+  handleLootBoxClick = (event) => {
+    // generate random crystal
+
+    // 1. check if user has enough money
+    // 2. what is the price for the loot box?
+    // 3. result of loot box - store in state + backend?
+    // 4. update render?
+    //const newCrystal = crystals.randomCrystal();
+    //this.setState({crystals: [...this.state.crystals, crystal]});
+    this.buyLootBox(); //async api call
+    // update user info here
   };
 
   async redeemedGift() {
@@ -122,24 +57,31 @@ export class Home extends React.Component {
 
     if (response.status != 200) {
       this.setState({ errorMsg: "something went wrong" });
-      
     }
   }
 
-  async buyCrystal() {
-    const url = "api/buycrystal";
+  async buyLootBox() {
+    const url = "/api/buylootbox";
     const response = await fetch(url);
+    if (response.status === 204) {
+      console.log("user did not have enough money");
+    }
     if (response.status != 200) {
-      this.setState({errorMsg: "something went wrong"});
+      this.setState({ errorMsg: "something went wrong" });
+      console.log("loot box button");
+      console.log(this.state.buyLootBox);
+    } else {
+      console.log("ok");
+      this.props.fetchAndUpdateUserInfo();
     }
   }
 
   render() {
-    const user = this.props.user;
+    const user = this.props.userObject;
     //console.log(this.state.redeemedGift);
     //console.log(user);
-    let renderButton = this.renderButton();
-    
+    // let renderButton = this.renderButton();
+
     /*
     const gift = this.redeemedGift;
     let content;
@@ -154,42 +96,36 @@ export class Home extends React.Component {
         <h2 className="heading center">Play the Gacha Crystal game</h2>
         <p className="limited">
           Welcome to the Crystals! In this game, you will get 3 free crystals
-          when you log in for the first time, and you can mill and buy
-          random crystals with the value of the crystals you already redeemed!
+          when you log in for the first time, and you can mill and buy random
+          crystals with the value of the crystals you already redeemed!
         </p>
         <p>Number of existing Crystals: {crystals.crystals.length}</p>
         {user ? (
-          <div>
+          <div className="home">
             <Link to={"/crystals"} className={"button"}>
               All Crystals
             </Link>
-            <div className="action center">
-              <p>Wallet: {user.value}</p>
-              <p>Crystals: {user.crystals}</p>
-              <div>
+            <div className="center">
+              <p className="wallet"> Wallet: {user.value} </p>
               <button
                 onClick={this.handleClickGift}
+                className="button"
                 disabled={this.state.redeemedGift}
-                className="button">
-                {this.state.redeemedGift ? "Gift redeemed" : "Get free gift"}
+              >
+                {this.state.gift > 0
+                  ? this.state.gift + " gifts left"
+                  : "No more gifts"}
               </button>
-              <button
-                onClick={this.buyCrystal}
-                className="button">
-                  buy loot-box
+              <button onClick={this.handleLootBoxClick} className="button">
+                buy loot-box
               </button>
-              </div>
-              <Crystals
-                renderCrystalData={this.props}
-              ></Crystals>
             </div>
+            <Crystals renderUserCrystalData={this.props}></Crystals>
           </div>
         ) : (
           <div className="main-content center">
             <p>You need to log-in to start playing!</p>
-            <Crystals
-              renderCrystalData={this.props.renderCrystalData}
-            ></Crystals>
+            <Crystals></Crystals>
           </div>
         )}
       </div>
