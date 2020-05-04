@@ -38,7 +38,6 @@ Commands:
 
 ### Tests
 When I am writing this pre delivery 03.11 Monday morning, I have as much as 53.93% coverage and all tests are passing.
-![Test coverage](https://github.com/iaffs/gacha-crystals/blob/master/public/img/coveragesecond.png "Starting page")
 
 ![Test coverage](https://github.com/iaffs/gacha-crystals/blob/master/public/img/coverage.png "Starting page")
 
