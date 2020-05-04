@@ -1,6 +1,5 @@
-/*
-    
- */
+// Copied (and modified) from https://github.com/arcuri82/web_development_and_api_design/blob/master/exercise-solutions/quiz-game/part-09/src/server/db/users.js
+
 const crystals = require("./crystals");
 
 const users = new Map();
@@ -30,13 +29,12 @@ function createUser(id, password) {
     gift: 3,
     value: 5,
     crystals: [],
-    crystalCount: 0
+    crystalCount: 0,
   };
 
   users.set(id, user);
   return true;
 }
-
 
 function buyLootBox(id, free) {
   // loot box value is 5
@@ -63,17 +61,17 @@ function redeemedGift(id) {
 function sellCrystal(id, cId) {
   const user = getUser(id);
   let value = 0;
-  user.crystals.forEach(element => {
-      if (element['id'] == cId) {
-          value = element['value'];
-      }
+  user.crystals.forEach((element) => {
+    if (element["id"] == cId) {
+      value = element["value"];
+    }
   });
 
   if (value > 0) {
     for (let index = 0; index < user.crystals.length; index++) {
-        if (user.crystals[index]["id"] == cId) {
-            user.crystals.splice(index,1)
-        }
+      if (user.crystals[index]["id"] == cId) {
+        user.crystals.splice(index, 1);
+      }
     }
     user.value = user.value + value;
     return true;
