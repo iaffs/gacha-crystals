@@ -7,7 +7,7 @@ Link: <http://localhost:8080/>
 #### Intro
 
 My learning curve has been very steep, and I am proud of what I have been able to achieve during this time.
-Project is written in React and Node.js from a boiler plate provided by Andrea Arcuri in lectures. In my project I have used quiz-game solution 9 as a starting point.
+Project is written in React, JS and Node.js from a boiler plate provided by Andrea Arcuri in lectures. In my project I have used quiz-game solution 9 as a starting point.
 I have marked the files which have been copied from lectures in project as well.
 
 
@@ -57,7 +57,7 @@ When I am writing this pre delivery 03.11 Monday morning, I have as much as 53.9
 ## Evaluation
 
 I have struggled a lot during this exam to make everything work, but stubborn as I am I wanted to be able to make it as good as possible and to master as much of the requirements as I could.
-I am happy about the result regardless of the grade. The grade doesn't always reflect the effort and what the student learned. This exam has also made me want to do more React in personal project, and also made me more curious about security in web applications.
+I am happy about the result regardless of the grade. The grade doesn't always reflect the effort and what the student learned. This exam has also made me want to do more React in personal projects, and also made me more curious about security in web applications.
 
 ## Missing functionality
 + Free gift every x amount of time - I am so sad about this actually because I really wanted to master this but since I am writing this in the middle of the night I am far from able to figure out the code to make it work.
@@ -65,4 +65,4 @@ As a part of this, there is now a code I started in ws-handler.js, but that I di
 
 + Tests - With more time I would have wanted to focus more on writing good test and get better coverage.
 This is something I have learned a lot from, and that I will take with me into future projects both personally and professionally.
-As far as I know, there's not any major missing funcionality, But I'm sure there's something I missed that I can't 
+As far as I know, there's not any major missing funcionality, but I'm sure there's something I missed that I can't think of as of now
